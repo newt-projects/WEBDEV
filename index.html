@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Onboarding Form | WEBDEV</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>WEBDEV</h1>
+                <p>Client Onboarding</p>
+            </div>
+            <div class="header-info">
+                <div class="time-estimate">
+                    <i class="far fa-clock"></i>
+                    <span>~10-15 minutes</span>
+                </div>
+                <button class="save-draft-btn" id="saveDraft">
+                    <i class="far fa-save"></i> Save Draft
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="step-indicators" id="stepIndicators"></div>
+        </div>
+    </div>
+
+    <!-- Main Form -->
+    <main class="main-container">
+        <div class="container">
+            <div class="form-header">
+                <h2>Client Onboarding Form</h2>
+                <p class="subtitle">Help us understand your website needs. Complete all sections for the best results.</p>
+            </div>
+
+            <!-- FORM -->
+            <form id="onboardingForm" class="multi-step-form">
+                <!-- Step 1: Business & Goals -->
+                <div class="form-step active" id="step1">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3>Business & Goals</h3>
+                            <p>Tell us about your business and website objectives</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="businessName">Business/Company Name *</label>
+                        <input type="text" id="businessName" name="businessName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="businessType">What type of business do you have? *</label>
+                        <select id="businessType" name="businessType" required>
+                            <option value="">Select one...</option>
+                            <option value="product">Product-based (E-commerce)</option>
+                            <option value="service">Service-based</option>
+                            <option value="portfolio">Portfolio/Personal</option>
+                            <option value="blog">Blog/Content</option>
+                            <option value="nonprofit">Non-profit/Organization</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mainGoals">What are the TOP 3 goals for your website? *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox">
+                                <input type="checkbox" name="goals" value="sell"> Sell products/services online
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="goals" value="leads"> Generate leads/inquiries
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="goals" value="awareness"> Build brand awareness
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="goals" value="information"> Share information/updates
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="goals" value="community"> Build community/engagement
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="goals" value="other"> Other:
+                                <input type="text" class="other-input" name="goals_other" placeholder="Please specify">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="differentiator">What makes your business different from competitors?</label>
+                        <textarea id="differentiator" name="differentiator" rows="3" placeholder="Unique selling points, special approach, etc."></textarea>
+                    </div>
+
+                    <div class="step-navigation">
+                        <button type="button" class="btn-next" data-next="step2">Next: Content & Pages <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Content & Pages -->
+                <div class="form-step" id="step2">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3>Content & Pages</h3>
+                            <p>Define your website structure and content needs</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pagesNeeded">Which pages/sections do you need? *</label>
+                        <div class="checkbox-group columns-2">
+                            <label class="checkbox">
+                                <input type="checkbox" name="pages" value="home" checked> Homepage
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="pages" value="about"> About Us
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="pages" value="products"> Products/Services
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="pages" value="contact"> Contact
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="pages" value="blog"> Blog/News
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="pages" value="gallery"> Gallery/Portfolio
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="pages" value="testimonials"> Testimonials/Reviews
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="pages" value="faq"> FAQ
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="pages" value="other"> Other:
+                                <input type="text" class="other-input" name="pages_other" placeholder="Specify page names">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contentStatus">What's your content status? *</label>
+                        <select id="contentStatus" name="contentStatus" required>
+                            <option value="">Select one...</option>
+                            <option value="have">I have all content ready (text, images)</option>
+                            <option value="partial">I have some content, need help with rest</option>
+                            <option value="need">I need content created/written</option>
+                            <option value="unsure">Unsure, need guidance</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contentNotes">Any specific content requirements or notes?</label>
+                        <textarea id="contentNotes" name="contentNotes" rows="3" placeholder="Multilingual, video content, specific messaging, etc."></textarea>
+                    </div>
+
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev" data-prev="step1"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="btn-next" data-next="step3">Next: Design & Style <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Design & Style -->
+                <div class="form-step" id="step3">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3>Design & Style</h3>
+                            <p>Share your visual preferences and brand identity</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Do you have existing branding? *</label>
+                        <div class="radio-group">
+                            <label class="radio">
+                                <input type="radio" name="hasBranding" value="yes" required> Yes, I have logo and brand guidelines
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="hasBranding" value="partial"> Partial (logo only, no guidelines)
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="hasBranding" value="no" required> No, need branding/logo design
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="websiteExamples">Share 1-3 websites you like (URLs)</label>
+                        <div class="url-inputs">
+                            <input type="url" name="website1" placeholder="https://example1.com">
+                            <input type="url" name="website2" placeholder="https://example2.com">
+                            <input type="url" name="website3" placeholder="https://example3.com">
+                        </div>
+                        <small>What do you like about these sites? (design, layout, colors, etc.)</small>
+                        <textarea name="website_notes" placeholder="Brief description of what appeals to you..." rows="2"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="designStyle">Preferred design style/vibe? *</label>
+                        <select id="designStyle" name="designStyle" required>
+                            <option value="">Select style...</option>
+                            <option value="modern">Modern & Clean</option>
+                            <option value="corporate">Corporate & Professional</option>
+                            <option value="creative">Creative & Artistic</option>
+                            <option value="minimal">Minimal & Simple</option>
+                            <option value="bold">Bold & Vibrant</option>
+                            <option value="elegant">Elegant & Luxury</option>
+                            <option value="friendly">Friendly & Approachable</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="colorPreferences">Color preferences or restrictions</label>
+                        <textarea id="colorPreferences" name="colorPreferences" rows="2" placeholder="Preferred colors, brand colors, colors to avoid..."></textarea>
+                    </div>
+
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev" data-prev="step2"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="btn-next" data-next="step4">Next: Functionality <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Functionality -->
+                <div class="form-step" id="step4">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h3>Functionality</h3>
+                            <p>What features does your website need?</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Essential Functionality (Select all needed) *</label>
+                        <div class="checkbox-group columns-2">
+                            <label class="checkbox">
+                                <input type="checkbox" name="functionality" value="contact"> Contact form
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="functionality" value="ecommerce"> Online store/shopping cart
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="functionality" value="booking"> Booking/reservation system
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="functionality" value="members"> Member/login area
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="functionality" value="gallery"> Photo/video gallery
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="functionality" value="social"> Social media integration
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="functionality" value="blog"> Blog/news system
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="functionality" value="search"> Advanced search
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="functionality" value="other"> Other:
+                                <input type="text" class="other-input" name="functionality_other" placeholder="Specify features">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="payments">Online payment needs?</label>
+                        <select id="payments" name="payments">
+                            <option value="">Select if applicable...</option>
+                            <option value="none">No online payments needed</option>
+                            <option value="credit">Credit/Debit cards</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="mobile">Mobile money</option>
+                            <option value="bank">Bank transfer</option>
+                            <option value="multiple">Multiple payment methods</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="integration">Third-party integrations needed?</label>
+                        <textarea id="integration" name="integration" rows="2" placeholder="CRM, email marketing, analytics, booking systems, etc."></textarea>
+                    </div>
+
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev" data-prev="step3"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="btn-next" data-next="step5">Next: Technical <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Technical -->
+                <div class="form-step" id="step5">
+                    <div class="step-header">
+                        <div class="step-number">5</div>
+                        <div>
+                            <h3>Technical</h3>
+                            <p>Technical requirements and setup</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="domain">Do you already have a domain name? *</label>
+                        <div class="radio-group">
+                            <label class="radio">
+                                <input type="radio" name="domain" value="yes" required> Yes, I own: 
+                                <input type="text" class="inline-input" name="domain_name" placeholder="yourdomain.com">
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="domain" value="no" required> No, I need help registering one
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="domain" value="unsure" required> Unsure
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hosting">Web hosting status? *</label>
+                        <select id="hosting" name="hosting" required>
+                            <option value="">Select one...</option>
+                            <option value="have">I have hosting</option>
+                            <option value="need">I need hosting setup</option>
+                            <option value="recommend">Recommend hosting for me</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Business email needs?</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox">
+                                <input type="checkbox" name="emailNeeds" value="setup"> Set up email addresses (@yourdomain.com)
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="emailNeeds" value="existing"> I have existing email service
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="emailNeeds" value="none"> Not needed
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seo">SEO & Analytics needs?</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox">
+                                <input type="checkbox" name="seo" value="basic"> Basic SEO setup
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="seo" value="analytics"> Google Analytics/Business Suite
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="seo" value="advanced"> Advanced SEO strategy
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="seo" value="none"> Not sure/not needed
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev" data-prev="step4"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="btn-next" data-next="step6">Next: Existing Assets <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 6: Existing Assets -->
+                <div class="form-step" id="step6">
+                    <div class="step-header">
+                        <div class="step-number">6</div>
+                        <div>
+                            <h3>Existing Assets</h3>
+                            <p>What materials do you already have?</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Which of these do you have ready? (Check all that apply)</label>
+                        <div class="checkbox-group columns-2">
+                            <label class="checkbox">
+                                <input type="checkbox" name="assets" value="logo"> Logo (high-quality files)
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="assets" value="photos"> Business/product photos
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="assets" value="text"> Written content/text
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="assets" value="brand"> Brand guidelines
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="assets" value="video"> Video content
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="assets" value="social"> Social media accounts
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="assets" value="testimonials"> Customer testimonials
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="assets" value="marketing"> Marketing materials
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assetNotes">Asset notes or sharing method</label>
+                        <textarea id="assetNotes" name="assetNotes" rows="3" placeholder="How will you share files? (Google Drive, Dropbox, email, etc.) or any specific notes about your assets"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="socialMedia">Social media links (if applicable)</label>
+                        <div class="url-inputs">
+                            <input type="url" name="facebook" placeholder="Facebook URL">
+                            <input type="url" name="instagram" placeholder="Instagram URL">
+                            <input type="url" name="linkedin" placeholder="LinkedIn URL">
+                            <input type="url" name="other_social" placeholder="Other social media">
+                        </div>
+                    </div>
+
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev" data-prev="step5"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="btn-next" data-next="step7">Next: Target Audience <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 7: Target Audience -->
+                <div class="form-step" id="step7">
+                    <div class="step-header">
+                        <div class="step-number">7</div>
+                        <div>
+                            <h3>Target Audience</h3>
+                            <p>Who are you trying to reach?</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="audienceDesc">Describe your ideal customer *</label>
+                        <textarea id="audienceDesc" name="audienceDesc" rows="3" required placeholder="Age range, location, interests, profession, challenges they face..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Where do your customers currently find you? (Check all that apply)</label>
+                        <div class="checkbox-group columns-2">
+                            <label class="checkbox">
+                                <input type="checkbox" name="sources" value="social"> Social media
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="sources" value="search"> Search engines (Google)
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="sources" value="referral"> Word of mouth/referrals
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="sources" value="ads"> Online/offline ads
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="sources" value="events"> Events/networking
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="sources" value="other"> Other channels
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mainAction">What is the MAIN action you want website visitors to take? *</label>
+                        <select id="mainAction" name="mainAction" required>
+                            <option value="">Select primary goal...</option>
+                            <option value="purchase">Make a purchase</option>
+                            <option value="contact">Contact/request quote</option>
+                            <option value="signup">Sign up/subscribe</option>
+                            <option value="call">Call your business</option>
+                            <option value="visit">Visit physical location</option>
+                            <option value="download">Download something</option>
+                            <option value="learn">Learn about your services</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="competitors">Main competitors (website URLs)</label>
+                        <div class="url-inputs">
+                            <input type="url" name="competitor1" placeholder="Competitor 1 website">
+                            <input type="url" name="competitor2" placeholder="Competitor 2 website">
+                            <input type="url" name="competitor3" placeholder="Competitor 3 website">
+                        </div>
+                    </div>
+
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev" data-prev="step6"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="btn-next" data-next="step8">Next: Legal & Final <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 8: Legal & Final -->
+                <div class="form-step" id="step8">
+                    <div class="step-header">
+                        <div class="step-number">8</div>
+                        <div>
+                            <h3>Legal & Final Details</h3>
+                            <p>Final requirements and submission</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Which legal pages do you need? (Check all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox">
+                                <input type="checkbox" name="legal" value="privacy"> Privacy Policy
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="legal" value="terms"> Terms & Conditions
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="legal" value="cookies"> Cookie Notice/Consent
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="legal" value="disclaimer"> Disclaimer(s)
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" name="legal" value="none"> Not sure/need advice
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="timeline">What is your ideal timeline? *</label>
+                        <select id="timeline" name="timeline" required>
+                            <option value="">Select timeline...</option>
+                            <option value="asap">ASAP (within 2 weeks)</option>
+                            <option value="1month">Within 1 month</option>
+                            <option value="3months">Within 3 months</option>
+                            <option value="flexible">Flexible, no rush</option>
+                            <option value="specific">Specific date: 
+                                <input type="date" class="inline-input" name="specific_date">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">Budget range for this project *</label>
+                        <select id="budget" name="budget" required>
+                            <option value="">Select budget range...</option>
+                            <option value="low">Under $1,000</option>
+                            <option value="medium">$1,000 - $3,000</option>
+                            <option value="high">$3,000 - $7,000</option>
+                            <option value="enterprise">$7,000+</option>
+                            <option value="custom">Custom/To be discussed</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactEmail">Your email address *</label>
+                        <input type="email" id="contactEmail" name="contactEmail" required placeholder="you@example.com">
+                        <small>We'll send a copy of your responses here</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox">
+                            <input type="checkbox" id="agreeCheckbox" name="agree" required>
+                            I agree to receive a copy of my responses and further communication about this project *
+                        </label>
+                    </div>
+
+                    <div class="summary-section" id="summarySection" style="display: none;">
+                        <h4><i class="fas fa-file-alt"></i> Form Summary</h4>
+                        <div class="summary-content" id="summaryContent"></div>
+                    </div>
+
+                    <div class="step-navigation">
+                        <button type="button" class="btn-prev" data-prev="step7">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button type="button" class="btn-show-summary" id="showSummary">
+                            <i class="fas fa-eye"></i> Review Summary
+                        </button>
+                        <button type="button" class="btn-submit" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> Submit Form
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 WEBDEV Client Onboarding Form. All responses are confidential.</p>
+            <p class="footer-links">
+                <a href="#" id="privacyLink">Privacy Policy</a> | 
+                <a href="#" id="termsLink">Terms of Use</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Form Submitted Successfully!</h3>
+            <p>Your default email client (Gmail, Outlook, etc.) has opened with all your form responses.</p>
+            <p>Please review and send the email to complete your submission.</p>
+            <p>We'll review your information and contact you within 1-2 business days.</p>
+            <div style="margin-top: 20px; padding: 15px; background: #f0f7ff; border-radius: 8px;">
+                <p style="font-size: 0.9rem; color: #4b5563;">
+                    <i class="fas fa-info-circle"></i> If email didn't open, please send manually to:<br>
+                    <strong>d3skdevelopers@gmail.com</strong> 
+                </p>
+            </div>
+            <button class="btn-close-modal" id="closeModal">Close & Return to Form</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
